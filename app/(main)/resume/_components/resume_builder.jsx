@@ -368,7 +368,7 @@ export default function ResumeBuilder({ initialContent }) {
           {activeTab === "preview" && (
             <Button
               variant="link"
-              type="button"
+              type="submit"
               className="mb-2"
               onClick={() =>
                 setResumeMode(resumeMode === "preview" ? "edit" : "preview")

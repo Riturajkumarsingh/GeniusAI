@@ -190,7 +190,7 @@ export default function Home() {
               Join thousands of professionals who are advancing their careers
               with AI-powered guidance.
             </p>
-            <Link href="/dashboard" passHref>
+            <Link href="/dashboard">
               <Button
                 size="lg"
                 variant="secondary"

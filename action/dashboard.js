@@ -58,6 +58,7 @@ export async function getIndustryInsights() {
         industry: user.industry,
         ...insights,
         nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+         industry: user.industry || "Unknown",
       },
     });
 
