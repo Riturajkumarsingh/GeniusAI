@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Toaster } from "@/components/ui/sonner";
+import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,14 +35,8 @@ export default function RootLayout({ children }) {
             <main className="min-h-screen">{children}</main>
             <Toaster richColors />
             {/* footer */}
-            <footer className="bg-gradient-to-r from-gray-800 to-gray-900 py-8">
-              <div className="container mx-auto px-6 text-center text-gray-300">
-                <p className="text-lg font-semibold tracking-wide">
-                  © <span className="text-blue-400">GeniusAI</span> {" "}
-                  <span className="text-white">All rights reserved</span>
-                </p>
-              </div>
-            </footer>
+            <Footer />
+            <BackToTop />
           </ThemeProvider>
         </body>
       </html>
