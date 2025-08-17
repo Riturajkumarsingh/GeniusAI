@@ -7,5 +7,14 @@ export function ThemeProvider({
   children,
   ...props
 }) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+  return (
+    <NextThemesProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      {...props}
+    >
+      {children}
+    </NextThemesProvider>
+  );
 }

@@ -1,15 +1,7 @@
 "use client";
 
 import React from "react";
-import { 
-  Github, 
-  Linkedin, 
-  Twitter, 
-  Mail, 
-  Phone, 
-  MapPin,
-  ExternalLink 
-} from "lucide-react";
+import { Linkedin, Github, Twitter, ExternalLink, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
@@ -197,3 +189,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

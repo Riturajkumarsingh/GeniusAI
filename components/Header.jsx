@@ -1,3 +1,4 @@
+"use client";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +10,8 @@ import {
   LayoutDashboard,
   PenBox,
   StarsIcon,
+  Moon,
+  Sun,
 } from "lucide-react";
 import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
 import {
@@ -18,11 +21,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { checkUser } from "@/lib/checkUser";
+import { useTheme } from "next-themes";
+import React from "react";
 
-const Header = async() => {
-  await checkUser();
-  
+const Header = () => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md  z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -44,56 +53,67 @@ const Header = async() => {
                 <span className="hidden md:block">Industry Insights</span>
               </Button>
             </Link>
-         
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button>
-                <StarsIcon className="h-4 w-4 "/>
-                <span className="hidden md:block">Growth Tools</span>
-                <ChevronDown className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>
-                <Link href={"/resume"} className="flex items-center gap-2">
-                  <FileText className="h-4 w-4" />
-                  <span>Build Resume</span>
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-              <Link href={"/ai-cover-letter"} className="flex items-center gap-2">
-                  <PenBox className="h-4 w-4" />
-                  Cover Letter
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-              <Link href={"/interview"} className="flex items-center gap-2">
-                  <GraduationCap className="h-4 w-4" />
-                  Interview Prep
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button>
+                  <StarsIcon className="h-4 w-4 " />
+                  <span className="hidden md:block">Growth Tools</span>
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>
+                  <Link href={"/resume"} className="flex items-center gap-2">
+                    <FileText className="h-4 w-4" />
+                    <span>Build Resume</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href={"/ai-cover-letter"} className="flex items-center gap-2">
+                    <PenBox className="h-4 w-4" />
+                    Cover Letter
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href={"/interview"} className="flex items-center gap-2">
+                    <GraduationCap className="h-4 w-4" />
+                    Interview Prep
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </SignedIn>
-          
+
           <SignedOut>
             <SignInButton>
-              <Button variant="outline">Sign In</Button>
+              <Button variant="outline" className="cursor-pointer">Sign In</Button>
             </SignInButton>
           </SignedOut>
-      <SignedIn>
-        <UserButton 
-        appearance={{
-            elements:{
-                avatarBox:"w-10 h-10",
-                userButtonPopoverCard:"shadow-xl",
-                userPreviewMainIdentifier:"font-bold",
-            },
-        }}
-        afterSignOutUrl="/"
-        />
-      </SignedIn>
+          <SignedIn>
+            <UserButton
+              appearance={{
+                elements: {
+                  avatarBox: "w-10 h-10",
+                  userButtonPopoverCard: "shadow-xl",
+                  userPreviewMainIdentifier: "font-bold",
+                },
+              }}
+              afterSignOutUrl="/"
+            />
+          </SignedIn>
+          {/* Theme toggle button */}
+          {mounted && (
+            <Button
+              variant="outline"
+              size="icon"
+              aria-label="Toggle theme"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="ml-2"
+            >
+              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </Button>
+          )}
         </div>
       </nav>
     </header>
