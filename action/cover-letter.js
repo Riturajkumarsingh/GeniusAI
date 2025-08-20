@@ -95,7 +95,9 @@ export async function getCoverLetter(id) {
 
   if (!user) throw new Error("User not found");
 
-  return await db.coverLetter.findUnique({
+  // Using findFirst instead of findUnique because we are filtering by both id and userId
+  // (issue #20: previous code incorrectly used findUnique with a non-unique compound filter)
+  return await db.coverLetter.findFirst({
     where: {
       id,
       userId: user.id,
