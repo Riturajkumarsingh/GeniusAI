@@ -1,56 +1,101 @@
-# AI Career Project
+# 🌟 AI Career Project  
 
-This is a [Next.js](https://nextjs.org) project created for AI Career development.
+An **AI-powered career planning application** built with **Next.js** to help users explore, plan, and shape their professional journeys.  
 
-## Project Overview
+🚀 **Live Demo** → [GeniusAI](https://genius-ai-gules.vercel.app/)  
 
-This project is designed to help users explore and plan their careers using AI-powered tools. It includes features such as:
+---
 
-- AI-driven career recommendations
-- Interactive user interface built with Next.js
-- Optimized font loading with [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
-- Responsive design for all devices
+## 📖 Project Overview  
+The **AI Career Project** leverages modern web technologies and AI models to provide personalized career recommendations.  
+It helps **students, professionals, and career changers** by offering insights, suggestions, and growth paths.  
+
+---
+
+## ✨ Features  
+- 🔮 **AI-Driven Career Recommendations** – Smart suggestions based on user interests, skills, and goals.  
+- 🎨 **Interactive UI** – Built with **Next.js** for smooth navigation and performance.  
+- ⚡ **Optimized Performance** – Uses `next/font` for fast font loading.  
+- 📱 **Responsive Design** – Works seamlessly on desktop, tablet, and mobile.  
+- 🧩 **Clean Codebase** – Modular, easy to extend, and developer-friendly.  
+- 🚀 **Future Roadmap** – Resume analysis, interview prep, skill-gap detection.  
+
+---
+
+## 📂 Folder Structure  
 
 ## Folder Structure
 
 ```
-ai_project/
-├── app/                # Main Next.js app directory (pages, layouts, etc.)
-│   └── page.js         # Main landing page
-├── public/             # Static assets (images, icons, etc.)
-├── styles/             # CSS/SCSS files
-├── README.md           # Project documentation
-├── package.json        # Project dependencies and scripts
-└── ...                 # Other config and source files
+GeniusAI/
+├── action/ # Project actions and handlers
+├── app/ # Main Next.js app directory (pages, layouts, etc.)
+├── components/ # Reusable React components
+├── data/ # Static or dynamic data files
+├── hooks/ # Custom React hooks
+├── lib/ # Utility functions and libraries
+├── prisma/ # Prisma schema and database configs
+├── public/ # Static assets (images, icons, etc.)
+├── .gitignore # Git ignored files
+├── README.md # Project documentation
+├── components.json # Component config file
+├── eslint.config.mjs # ESLint configuration
+├── jsconfig.json # JS config for path aliases
+├── middleware.js # Middleware logic
+├── next.config.mjs # Next.js configuration
+├── package-lock.json # Lockfile for npm dependencies
+├── package.json # Project dependencies and scripts
+├── postcss.config.mjs # PostCSS configuration
+├── pull_request_template.md # PR guidelines template
+├── tailwind.config.mjs # Tailwind CSS configuration
+└── ... # Other project files
 ```
+## ⚙️ Getting Started  
 
-## Getting Started
-
-To run the development server:
-
-```bash
+### 1️⃣ Clone the repository  
+```
+git clone https://github.com/Riturajkumarsingh/GeniusAI.git
+cd GeniusAI
+```
+2️⃣ Install dependencies
+```
+npm install
+```
+3️⃣ Run the development server
+```
 npm run dev
 ```
+Open http://localhost:3000 in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
+You can edit the main page by modifying app/page.js. The page auto-updates as you save changes.
 
-You can edit the main page by modifying `app/page.js`. The page will auto-update as you save changes.
+🎉 Project Events & Highlights
+<p align="center"> 
+  <a href="https://www.osconnect.org/" target="_blank">
+    <img width="927" height="241" alt="image" src="https://github.com/user-attachments/assets/33faeb71-c381-4d33-b6dd-7754921c3867" />
+  </a>
+</p>
+## 🌍 Deployment  
 
-## Features
+This project is production-ready and can be deployed easily on **Vercel**.  
 
-- Built with Next.js
-- Uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) for optimized font loading
-- Modern development workflow
-- AI-powered career suggestions (planned/implemented)
-- Clean and modular codebase
+- 📖 [Vercel Deployment Guide](https://vercel.com/docs)  
+- 📖 [Next.js Deployment Docs](https://nextjs.org/docs/app/building-your-application/deploying)  
 
-## Learn More
+---
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Next.js Deployment Guide](https://nextjs.org/docs/app/building-your-application/deploying)
+## 📚 Learn More  
 
-## Deployment
+- [Next.js Documentation](https://nextjs.org/docs)  
+- [Learn Next.js](https://nextjs.org/learn)  
 
-You can deploy this app easily on [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+---
 
-For more details, see the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
+## 🤝 Contributing  
+
+Contributions are welcome! 🎉  
+
+1. Fork the repository  
+2. Create a new branch (`feature/your-feature-name`)  
+3. Commit your changes  
+4. Push the branch and open a Pull Request 
