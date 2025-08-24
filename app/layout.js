@@ -7,6 +7,8 @@ import { dark } from "@clerk/themes";
 import { Toaster } from "@/components/ui/sonner";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import Lenis from "lenis";
+import LenisProvider from "@/components/LenisScroll";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +26,8 @@ export default function RootLayout({ children }) {
     >
       <html lang="en" suppressHydrationWarning>
         <body className={`${inter.className}`}>
-          <ThemeProvider
+          <LenisProvider>
+            <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem
@@ -38,6 +41,7 @@ export default function RootLayout({ children }) {
             <Footer />
             <BackToTop />
           </ThemeProvider>
+          </LenisProvider>
         </body>
       </html>
     </ClerkProvider>
