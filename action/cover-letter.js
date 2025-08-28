@@ -95,8 +95,7 @@ export async function getCoverLetter(id) {
 
   if (!user) throw new Error("User not found");
 
-  // Adjusted in issue #20 branch (ensure filtering by both id and user ownership)
-  return await db.coverLetter.findFirst({
+  return await db.coverLetter.findUnique({
     where: {
       id,
       userId: user.id,
@@ -114,10 +113,10 @@ export async function deleteCoverLetter(id) {
 
   if (!user) throw new Error("User not found");
 
-  // Issue #21: delete() must use a unique selector; verify ownership first then delete by id
-  const letter = await db.coverLetter.findUnique({ where: { id } });
-  if (!letter || letter.userId !== user.id) {
-    throw new Error("Not found");
-  }
-  return await db.coverLetter.delete({ where: { id } });
+  return await db.coverLetter.delete({
+    where: {
+      id,
+      userId: user.id,
+    },
+  });
 }
